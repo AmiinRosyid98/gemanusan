@@ -297,6 +297,18 @@
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
+            <?php foreach ($galeri as $key) : ?>
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                  <img src="<?= base_url() ?>assets/upload_galeri/<?= $key->gambar ?>" class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                    <h4>App 1</h4>
+                    <p>Lorem ipsum, dolor sit</p>
+                    <a href="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div><!-- End Portfolio Item -->
+            <?php endforeach ?>
+
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
               <img src="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">

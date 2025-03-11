@@ -49,6 +49,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/admin/assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/admin/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/admin/assets/css/demo.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>assets/admin/assets/css/iziToast.min.css" />
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -248,6 +249,7 @@
 
     <!-- Main JS -->
     <script src="<?= base_url() ?>assets/admin/assets/js/main.js"></script>
+    <script src="<?= base_url() ?>assets/admin/assets/js/iziToast.min.js"></script>
 
     <!-- Page JS -->
 
@@ -258,15 +260,47 @@
             e.preventDefault();
             let email = $('#email').val()
             let password = $('#password').val()
-
+            $(this).prop("disabled",true)
             if(email == ""){
                 zemPopover("#email","Masukkan Username")
+                $(this).prop("disabled",false)
+
                 return false
             }
             if(password == ""){
                 zemPopover("#password","Masukkan Password")
+                $(this).prop("disabled",false)
+
                 return false
             }
+
+            $.ajax({
+                url: "<?= base_url() ?>login/ceklogin",
+                type: "POST",
+                dataType: "json",
+                data:{
+                    email:email,
+                    password:password,
+                },
+                success: function(response) {
+                    if(response.status=="sukses"){
+                        window.location.href = "<?= base_url() ?>admin"
+                    } else {
+                        $('.btn-login').prop("disabled",false)
+                        iziToast.error({
+                            title: 'ERROR',
+                            message: response.msg,
+                            position: 'topRight'
+                        });
+                        return false
+                    }
+                },
+                error: function(xhr, status, error) {
+                    $('.btn-login').prop("disabled",false)
+
+                    console.error(xhr.responseText);
+                }
+            });
 
 
         })

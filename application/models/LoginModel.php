@@ -7,6 +7,7 @@ class LoginModel extends CI_model{
 		$result= $this->db 
 					  ->where('username',$username)
 					  ->where('password',($password))
+					  ->where('hapus',0)
 					  ->limit(1)
 					  ->get('user');
 

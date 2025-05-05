@@ -1,38 +1,24 @@
 
-
+    <?php $tampil = false; ?>
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
       <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-
-        <div class="carousel-item active">
-          <img src="<?= base_url() ?>assets/img/hero-carousel/gema1.jpeg" alt="">
+        <?php 
+        $no=1;
+        foreach ($slider as $key) : ?>
+        <div class="carousel-item <?php if($no==1) {echo "active";} $no++; ?>">
+          <img src="<?= base_url() ?>assets/upload_slider/<?= $key->gambar ?>" alt="">
           <div class="carousel-container">
-            <h2 class="text-center">Selamat Datang di <br>Gema Marina Nusantara</h2>
-            <p class="text-center">Pabrik industri yang bergerak dibidang alat-alat pelabuhan dan dermaga. Produk Rubber Fender yang sudah bersertifikat <strong>SNI 06-3568-2006</strong>, <strong>TKDN DAN ISO</strong></p>
-            <a href="#featured-services" class="btn-get-started">Mulai Sekarang</a>
+            <h2 class="text-center"><?= $current_lang == "indonesian" ? $key->nama : $key->nama_en ?></h2>
+            <p class="text-center"><?= $current_lang == "indonesian" ? $key->deskripsi : $key->deskripsi_en ?></p>
+            <a href="#about" class="btn-get-started"><?= $lang['start_now']; ?></a>
           </div>
         </div><!-- End Carousel Item -->
 
-        <div class="carousel-item">
-          <img src="<?= base_url() ?>assets/img/hero-carousel/hero-carousel-2.jpg" alt="">
-          <div class="carousel-container">
-            <h2 class="text-center">Kenali Produk kami</h2>
-            <p class="text-center">Kami memproduksi diantaranya: Rubber Fender Type Arch/V, M, Element/PI, Cylinder, Square, D, Cell Fender, Rubber Hose, Elastomer, BearingPads, Expansion Joint, Bollard, Frontal Frame, dan Accesories Fender lainnya</p>
-            <a href="#featured-services" class="btn-get-started">Mulai Sekarang</a>
+        <?php endforeach ?>
 
-          </div>
-        </div><!-- End Carousel Item -->
-
-        <div class="carousel-item">
-          <img src="<?= base_url() ?>assets/img/hero-carousel/hero-carousel-3.jpg" alt="">
-          <div class="carousel-container">
-            <h2 class="text-center">Layanan kami</h2>
-            <p class="text-center"> Kami mengutamakan kepuasan pelanggan dalam memberikan produk dan jasa sesuai permintaan pelanggan dengan menggunakan prosedur perusahaan yang mengacu kepada sistem manajemen mutu, peraturan pemerintah serta undang-undang yang berlaku.</p>
-            <a href="#featured-services" class="btn-get-started">Mulai Sekarang</a>
-
-          </div>
-        </div><!-- End Carousel Item -->
+        
 
         <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
           <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
@@ -53,8 +39,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Tentang Kami</h2>
-        <p>Kami adalah penyedia solusi karet berkualitas tinggi untuk berbagai industri.</p>
+        <h2><?= $lang['about_us']; ?></h2>
+        <p><?= $lang['about_us_desc']; ?></p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -62,35 +48,37 @@
         <div class="row gy-4">
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <!-- <h3>Voluptatem dignissimos provident laboris nisi ut aliquip ex ea commodo</h3> -->
-            <img src="<?= base_url() ?>assets/img/hero-carousel/gema1.jpeg" class="img-fluid rounded-4 mb-4" alt="">
-            <p><b>CV GEMA MARINA NUSANTARA</b> adalah Pabrik industri yang bergerak dibidang alat-alat pelabuhan dan dermaga. Produk Rubber Fender yang sudah bersertifikat SNI 06-3568-2006 , TKDN DAN ISO. 
-
-            </p>
-            <p>Kami memproduksi diantaranya: Rubber Fender Type Arch/V, M, Element/PI, Cylinder, Square, D, Cell Fender, Rubber Hose, Elastomer, BearingPads, Expansion Joint, Bollard, Frontal Frame, dan Accesories Fender lainnya lainnya seperti LAMPU PJU, dimana seluruh produksi telah kami kirim ke berbagai proyek-proyek renovasi dan pembangunan dermaga baru di seluruh wilayah Indonesia.</p>
+            <img src="<?= base_url() ?>assets/upload/<?= $profil->gambar ?>" class="img-fluid rounded-4 mb-4" alt="" style="aspect-ratio: 4/5; object-fit: cover;">
+            <?= $current_lang == "indonesian" ? $profil->isi : $profil->isi_en ?>
           </div>
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
             <div class="content ps-0 ps-lg-5">
-              <h3>Legalitas Perusahaan</h3>
+              <h3><?= $lang['company_legality']; ?></h3>
               <p class="fst-italic">
-                Telah memiliki izin perusahaan seperti SIUP, HO, TDP, dan juga akta pendirian perusahaan yang sah
+                <?= $lang['have_company_permits']; ?>
               </p>
 
               <ul>
-                <li><i class="bi bi-check-circle-fill"></i> <span>ISO 9001:2015 Rubber Manufacture for General Use and Infrastructure Use</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span>ISO 14001:2015 Rubber Manufacture for General Use and Infrastructure Use</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span>ISO 45001:2018 Rubber Manufacture for General Use and Infrastructure Use</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span>Tingkat Komponen Dalam Negeri (TKDN) kami Mencapai 40%</span></li>
-                <li><i class="bi bi-check-circle-fill"></i> <span>SNI 06-3568-2006 Vulkanisat Karet Kompon Bantalan Dermaga</span></li>
+                <?php foreach ($sertifikat as $key) : ?>
+                  <li><i class="bi bi-check-circle-fill"></i> <span><?= $current_lang == "indonesian" ? $key->nama : $key->nama_en ?></span></li>
+                <?php endforeach ?>
               </ul>
               
+              
+
+              <div class="partner-slider mb-3">
+                  <?php foreach ($sertifikat as $key) : ?>
+                  <div><img src="<?= base_url() ?>assets/upload_sertifikat/<?= $key->gambar ?>" class="img-sertifikat" alt="<?= $current_lang == "indonesian" ? $key->nama : $key->nama_en ?>"></div>
+                  <?php endforeach ?>
+                  
+              </div>
+
               <p>
-                Berdasarkan pengalaman kami yang cukup panjang didunia Rubber Fender serta hubungan baik dengan klien-klien yang telah dibina selama ini, maka dengan tangan terbuka, kami membuka ruang bagi siapapun untuk bekerjasama dengan kami.
+                <?= $lang['about_us_static']; ?>
               </p>
 
-              <div class="position-relative mt-4">
-                <img src="<?= base_url() ?>assets/img/about-2.jpg" class="img-fluid rounded-4" alt="">
-                <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
-              </div>
+              <img src="<?= base_url() ?>assets/upload/<?= $profil->gambardua  ?>" class="img-kedua rounded-4" alt="">
+
             </div>
           </div>
         </div>
@@ -98,7 +86,7 @@
       </div>
 
     </section><!-- /About Section -->
-
+    <?php if($tampil == true) : ?>
     <!-- Why Us Section -->
     <section id="why-us" class="why-us section">
 
@@ -274,138 +262,119 @@
       </div>
 
     </section><!-- /Services Section -->
-
+    <?php endif ?>
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2><?= $lang['gallery']; ?></h2>
+        <p><?= $lang['gallery_desc']; ?></p>
       </div><!-- End Section Title -->
 
       <div class="container">
 
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-product">Card</li>
-            <li data-filter=".filter-branding">Web</li>
-          </ul><!-- End Portfolio Filters -->
+          
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
             <?php foreach ($galeri as $key) : ?>
                 <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                  <img src="<?= base_url() ?>assets/upload_galeri/<?= $key->gambar ?>" class="img-fluid" alt="">
+                  <img src="<?= base_url() ?>assets/upload_galeri/<?= $key->gambar ?>" class="img-galeri" alt="">
                   <div class="portfolio-info">
-                    <h4>App 1</h4>
-                    <p>Lorem ipsum, dolor sit</p>
-                    <a href="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                    <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                    <h4><?= $current_lang == "indonesian" ? ($key->nama != "" ? $key->nama : "-") : ($key->nama_en != "" ? $key->nama_en : "-") ?></h4>
+                    <p><?= $current_lang == "indonesian" ? ($key->deskripsi != "" ? $key->deskripsi : "-") : ($key->deskripsi_en != "" ? $key->deskripsi_en : "-") ?></p>
+                    <a href="<?= base_url() ?>assets/upload_galeri/<?= $key->gambar ?>" title="<?= $current_lang == "indonesian" ? ($key->nama != "" ? $key->nama : "-") : ($key->nama_en != "" ? $key->nama_en : "-") ?>" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   </div>
                 </div><!-- End Portfolio Item -->
             <?php endforeach ?>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Product 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Branding 1</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 2</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Product 2</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-5.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Branding 2</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-6.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Product 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Branding 3</h4>
-                <p>Lorem ipsum, dolor sit</p>
-                <a href="<?= base_url() ?>assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-              </div>
-            </div><!-- End Portfolio Item -->
-
+            
           </div><!-- End Portfolio Container -->
+
+          <center>
+              <a href="<?= base_url() ?>galeri" class=" btn-detail align-self-start" style="margin-top: 20px;"><?= $lang['see_more']; ?></a>
+          </center>
 
         </div>
 
       </div>
 
     </section><!-- /Portfolio Section -->
+
+    <section id="katalog" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2><?= $lang['product_catalog']; ?></h2>
+        <p><?= $lang['product_catalog_desc']; ?></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <?php foreach ($produk as $key) : ?>
+                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                  <img src="<?= base_url() ?>assets/upload/<?= $key->gambar_prd ?>" class="img-galeri" alt="">
+                  <div class="portfolio-info">
+                    <h4><?= $current_lang == "indonesian" ? ($key->namaproduk != "" ? $key->namaproduk : "-") : ($key->namaproduk_en != "" ? $key->namaproduk_en : "-") ?></h4>
+                    <p><?= $current_lang == "indonesian" ? ($key->namakategori != "" ? $key->namakategori : "-") : ($key->namakategori_en != "" ? $key->namakategori_en : "-") ?></p>
+                    <a href="<?= base_url() ?>assets/upload/<?= $key->gambar_prd ?>" title="<?= $current_lang == "indonesian" ? ($key->namaproduk != "" ? $key->namaproduk : "-") : ($key->namaproduk_en != "" ? $key->namaproduk_en : "-") ?>" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                    <a href="<?= base_url() ?>produk/detail/<?= $key->kd_produk ?>" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div><!-- End Portfolio Item -->
+            <?php endforeach ?>
+
+
+            
+          </div><!-- End Portfolio Container -->
+          <center>
+              <a href="<?= base_url() ?>produk" class=" btn-detail align-self-start" style="margin-top: 20px;"><?= $lang['see_more']; ?></a>
+          </center>
+
+
+        </div>
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+    <section id="video" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2><?= $lang['videos']; ?></h2>
+        <p><?= $lang['videos_desc']; ?></p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          
+
+          <div class="partner-slider mb-3">
+              <?php foreach ($video as $key) : ?>
+              <div style="margin:0px 10px"><iframe width="100%" height="300" src="<?= convertToEmbed($key->link) ?>" frameborder="0" allowfullscreen></iframe></div>
+              <?php endforeach ?>
+              
+          </div>
+          <center>
+              <a href="<?= base_url() ?>video" class=" btn-detail align-self-start" style="margin-top: 20px;"><?= $lang['see_more']; ?></a>
+          </center>
+
+
+        </div>
+      </div>
+
+    </section><!-- /Portfolio Section -->
+    <?php if($tampil == true) : ?>
 
     <!-- Team Section -->
     <section id="team" class="team section">
@@ -479,6 +448,7 @@
       </div>
 
     </section><!-- /Team Section -->
+  
 
     <!-- Faq Section -->
     <section id="faq" class="faq section">
@@ -555,13 +525,15 @@
 
     </section><!-- /Faq Section -->
 
+    <?php endif ?>
+
     <!-- Contact Section -->
     <section id="contact" class="contact section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2><?= $lang['contact_us']; ?></h2>
+        <p><?= $lang['contact_us_desc']; ?></p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -571,29 +543,31 @@
           <div class="col-lg-6">
             <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
               <i class="bi bi-geo-alt"></i>
-              <h3>Address</h3>
-              <p>A108 Adam Street, New York, NY 535022</p>
+              <h3><?= $lang['address']; ?></h3>
+              <p><?= $profil->alamat ?></p>
             </div>
           </div><!-- End Info Item -->
 
           <div class="col-lg-3 col-md-6">
             <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-telephone"></i>
-              <h3>Call Us</h3>
-              <p>+1 5589 55488 55</p>
+              <h3><?= $lang['phone_wa']; ?></h3>
+              <p><?= $profil->telp ?></p>
             </div>
           </div><!-- End Info Item -->
 
           <div class="col-lg-3 col-md-6">
             <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
               <i class="bi bi-envelope"></i>
-              <h3>Email Us</h3>
-              <p>info@example.com</p>
+              <h3><?= $lang['email']; ?></h3>
+              <p><?= $profil->email ?></p>
             </div>
           </div><!-- End Info Item -->
 
         </div>
+        
 
+        <?php if($tampil == true) : ?>
         <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="400">
           <div class="row gy-4">
 
@@ -623,6 +597,8 @@
 
           </div>
         </form><!-- End Contact Form -->
+        <?php endif ?>
+
 
       </div>
 

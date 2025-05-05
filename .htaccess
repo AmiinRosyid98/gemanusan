@@ -1,10 +1,97 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
+Dek harato mangko den jauh
+Nak taraso tawang den tampuah
+Hujan paneh nan denai hadang
+Coitu nasib si anak dagang
 
-    # Pastikan request bukan file atau direktori yang ada
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
+Karena harta maka saya jauh
+Biar terasa tawang saya tempuh
+Hujan panas yang saya hadang
+Seperti itu nasib si anak dagang
 
-    # Arahkan semua request ke index.php
-    RewriteRule ^(.*)$ index.php/$1 [L]
-</IfModule>
+Uda sayang tolong dangakan
+Lah suratan ditangguang badan
+Matohari nan denai hadang
+Kandak rang tuo tak mungkin den lawan
+
+Uda sayang tolong dengarkan
+Sudah suratan ditanggung badan
+Matahari yang saya hadang
+Kehendak orang tua tidak mungkin saya lawan
+
+Babiduak mangko badayuang
+Nak jaleh jo tapian
+Den duduak baok bamanuang
+Nak jaleh jo parasaian
+
+Berbiduk maka berdayung
+Biar jelas dengan tepian
+Saya duduk bawa bermenung
+Biar jelas dengan penderitaan
+
+Usah uda jadikan baban
+Alah jodoh jo suratan
+Aia mato lai den tahan
+Kasiah ka uda tak ka mungkin hilang
+
+Usah uda jadikan baban
+Sudah jodoh dan suratan
+Air mata sungguh saya tahan
+Kasih ke uda tidak akan mungkin hilang
+
+Jauh, jauh rantau denai pajauh
+Jalang, jalang indak ka denai jalang
+
+Jauh, jauh rantau saya perjauh
+Kunjungi, kunjungi indak akan saya kunjungi
+
+Uda sayang tolong dangakan
+Lah suratan ditangguang badan
+Matohari nan denai hadang
+Kandak rang tuo tak mungkin den lawan
+
+Uda sayang tolong dengarkan
+Sudah suratan ditanggung badan
+Matahari yang saya hadang
+Kehendak orang tua tidak mungkin saya lawan
+
+Babiduak mangko badayuang
+Nak jaleh jo tapian
+Den duduak baok bamanuang
+Nak jaleh jo parasaian
+
+Berbiduk maka berdayung
+Biar jelas dengan tepian
+Saya duduk bawa bermenung
+Biar jelas dengan penderitaan
+
+Usah uda jadikan baban
+Alah jodoh jo suratan
+Aia mato lai den tahan
+Kasiah ka uda tak ka mungkin hilang
+
+Usah uda jadikan baban
+Sudah jodoh dan suratan
+Air mata sungguh saya tahan
+Kasih ke uda tidak akan mungkin hilang
+
+Jauh, jauh rantau denai pajauh
+Jalang, jalang indak ka denai jalang
+
+Jauh, jauh rantau saya perjauh
+Kunjungi, kunjungi tak akan saya kunjungi
+
+Pulang, pulang lah uda denai sayang
+Maafkanlah cinto nan lah tajalin
+
+Jauh, jauh rantau saya perjauh
+Kunjungi, kunjungi tak akan saya kunjungi
+
+Jauh, jauh rantau denai pajauh
+Jalang, jalang indak ka denai jalang
+
+Jauh, jauh rantau saya perjauh
+Kunjungi, kunjungi tak akan saya kunjungi
+
+
+
+Artikel ini telah tayang di TribunJatim.com dengan judul Terjemahan Lirik Lagu 'Rantau Den Pajauah' Ipank dan Rayola, 'Dek Harato Mangko Den Jauah', https://jatim.tribunnews.com/2019/10/03/terjemahan-lirik-lagu-rantau-den-pajauah-ipank-dan-rayola-dek-harato-mangko-den-jauah?page=all#goog_rewarded.

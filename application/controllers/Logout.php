@@ -27,7 +27,8 @@ class Logout extends CI_Controller {
     }
 	public function index()
 	{
-		$this->session->sess_destroy();
+		// $this->session->sess_destroy();
+		$this->session->unset_userdata(['id_user', 'username', 'nama', 'logged_in']);
 		redirect('login');
 	}
 }

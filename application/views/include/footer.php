@@ -9,19 +9,24 @@
             <span class="sitename">Gema Marina Nusantara</span>
           </a>
           <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            <p><?= $profil->alamat ?></p>
+            <p class="mt-3"><strong><?= $lang['phone']; ?>:</strong> <span><?= $profil->telp ?></span></p>
+            <p><strong><?= $lang['email']; ?>:</strong> <span><?= $profil->email ?></span></p>
           </div>
           <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <a target="_blank" href="<?= $profil->twitter ?>"><i class="bi bi-twitter-x"></i></a>
+            <a target="_blank" href="<?= $profil->facebook ?>"><i class="bi bi-facebook"></i></a>
+            <a target="_blank" href="<?= $profil->instagram ?>"><i class="bi bi-instagram"></i></a>
+            <a target="_blank" href="<?= $profil->linkedin ?>"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
-
+        <div class="col-lg-8">
+          <div style="width: 100%; border-radius: 5px;">
+            <?= convertToEmbed_maps($profil->embed_maps) ?>
+            
+          </div>
+        </div>
+        <!--
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Useful Links</h4>
           <ul>
@@ -65,18 +70,15 @@
             <li><a href="#">Flexo</a></li>
           </ul>
         </div>
+      -->
 
       </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Mamba</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Gema Marina Nusantara</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        
       </div>
     </div>
 
@@ -97,6 +99,46 @@
   <script src="<?= base_url() ?>assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="<?= base_url() ?>assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="<?= base_url() ?>assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $('.partner-slider').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+      });
+    })
+    $('.changelang').click(function(){
+      let value = $(this).attr("value");
+       $.ajax({
+          url: "<?= base_url() ?>welcome/switchLang", // Ganti dengan URL backend kamu
+          type: "POST",
+          data: {
+              value:value,
+          },
+          dataType: "json",
+          success: function (response) {
+              if(response.status =="gagal"){
+                alert("Ubah Gagal")
+                  
+              }  else {
+                  location.reload()
+              }
+              // $("#status").html("Upload berhasil: " + response);
+          },
+          error: function () {
+              alert("Ubah Gagal")
+          }
+      });
+    })
+  </script>
 
   <!-- Main JS File -->
   <script src="<?= base_url() ?>assets/js/main.js"></script>

@@ -26,32 +26,66 @@ class Login extends CI_Controller {
         if ($this->session->userdata('logged_in')) {
             redirect('admin'); // Jika tidak ada session, redirect ke login
         }
+
+        // $this->load->library('session');
+
+        // Cek bahasa di session
+        $language = $this->session->userdata('site_lang');
+        if (!$language) {
+            $language = 'indonesian';
+        }
+        $this->current_lang = $language;
+
+        // Include file multi bahasa
+        include(APPPATH.'language/multilang_lang.php');
+
+        // Simpan data bahasa sesuai pilihan
+        if (isset($lang[$language])) {
+        	$this->lang_data = $lang[$language];
+        }
+            
     }
 	public function index()
 	{
-		$this->load->view('admin/login');
+		$lang= $this->lang_data;
+		$data['lang'] = $lang;
+        $data['current_lang'] = $this->current_lang;
+		$this->load->view('admin/login',$data);
 	}
 
 	public function ceklogin(){
+		$lang= $this->lang_data;
+		$data['lang'] = $lang;
+        $data['current_lang'] = $this->current_lang;
+
 		$username = $this->input->post('email');
 		$password = md5($this->input->post('password'));
 		$user = $this->LoginModel->cek_login($username,$password);
+
 		if($user != false){
-			 $session_data = [
+
+			if($user->status != "1"){
+				echo json_encode(array(
+					"status" => "gagal",
+					"msg" => "$lang[nonactive_account]!",
+				));die;
+			}
+			$session_data = [
                 'id_user' => $user->id_user,
                 'username' => $user->username,
+                'nama' => $user->nama,
                 'logged_in' => TRUE
             ];
             $this->session->set_userdata($session_data); // Simpan session
 
 			echo json_encode(array(
 				"status" => "sukses",
-				"msg" => "Login Berhasil!",
+				"msg" => "$lang[success_login]!",
 			));die;
 		} else {
 			echo json_encode(array(
 				"status" => "gagal",
-				"msg" => "Username atau password salah!",
+				"msg" => "$lang[error_login_incorrect]!",
 			));die;
 		}
 	}
